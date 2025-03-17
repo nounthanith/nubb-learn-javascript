@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagenation</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+</head>
+<body class="">
+
+    <div class="flex justify-center item-center text-white gap-1 mt-20">
+        <button class="btn btn-success font-bold text-white" onclick="Dok()"> -</button>
+        <span class="btn btn-error text-white" id="count"> 0 </span>
+        <button class="btn btn-success text-white" onclick="Bok()">+ </button>
+    </div>
+   <div class="flex justify-center mt-5 gap-2">
+        <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
+        <button class="btn btn-neutral"><a href="index.html">Home</a></button>
+   </div>
+
+    <script>
+        function Bok(){
+            let count = document.getElementById("count");
+            count.innerHTML ++
+            if(count.innerHTML >= 5){
+                count.style.color = "red"
+            }else{
+                count.style.color = "white"
+            }
+        }
+        function Dok(){
+            let count = document.getElementById("count");
+            if(count.innerHTML > 0){
+                count.innerHTML -- 
+            }
+        }
+    </script>
+</body>
+</html>

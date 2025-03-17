@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find odd or even</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+</head>
+<body class="flex justify-center item-center mt-20">
+    <div class="block ">
+        <input class="input input-border" id="num" placeholder="Please input number" type="number">
+
+       <div class="block item-center mt-3 gap-4">
+            <button class="btn" onclick="eventOdd()">Click me</button>
+            <div class="font-semibold">Result is: <span class="text-green-600 underline font-bold mt-2" id="result"></span>
+       </div>
+    </div>
+    <div class="flex justify-center mt-5 gap-2">
+        <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
+        <button class="btn btn-neutral"><a href="index.html">Home</a></button>
+   </div>
+
+    <script>
+        function eventOdd(){
+
+            let num = document.getElementById("num")
+            let result = document.getElementById('result')
+
+            if(num.value % 2 == 0){
+                result.innerHTML = "Even"
+            }else{
+                result.innerHTML = "Odd"
+            }
+        }
+    </script>
+</body>
+</html>
