@@ -24,10 +24,12 @@
         function Bok(){
             let count = document.getElementById("count");
             count.innerHTML ++
-            if(count.innerHTML >= 5){
-                count.style.color = "red"
-            }else{
-                count.style.color = "white"
+            if (count.innerHTML > 10) { 
+                alert("Too much number❤️‍🔥");
+            } else if (count.innerHTML >= 5) { 
+                count.style.color = "blue";
+            } else {
+                count.style.color = "white";
             }
         }
         function Dok(){
