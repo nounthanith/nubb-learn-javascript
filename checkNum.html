@@ -13,7 +13,7 @@
         <div class="grid grid-col-1 gap-1">
             <input class="input input-border" id="number" type="text" placeholder="Input number"><br>
             <button class="btn btn-error" onclick="checkNumber()">Click me</button><br>
-            <p>Result: <span class="text-green-600" id="result"></span></p>
+            <p>Result: <span class="text-green-600" id="result"> </span></p>
         </div>
     </div>
     <div class="flex justify-center mt-5 gap-2">
@@ -28,10 +28,12 @@
             let number = document.getElementById("number")
             let result = document.getElementById("result")
 
-            if(number.value % 2 == 0){
+            // result.innerHTML = number.value //if want to save history +=
+
+            if(number.value >= 0){
                 result.innerHTML = "វិជ្ជមាន"
             }else{
-                result.innerHTML = "អវិជ្ជមាន"
+                result.innerHTML = "អវិជ្ចមាន"
             }
         }
     </script>
