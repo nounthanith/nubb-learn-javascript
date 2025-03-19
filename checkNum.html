@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckNumber</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+</head>
+<body class="flex justify-center item-center mt-20">
+    <div class="grid grid-col-1 gap-1">
+        <input class="input input-border" id="number" type="text" placeholder="Input number"><br>
+        <button class="btn btn-error" onclick="checkNumber()">Click me</button><br>
+        <p>Result: <span class="text-green-600" id="result"></span></p>
+    </div>
+
+
+    <script>
+        function checkNumber(){
+            let number = document.getElementById("number")
+            let result = document.getElementById("result")
+
+            if(number.value % 2 == 0){
+                result.innerHTML = "វិជ្ជមាន"
+            }else{
+                result.innerHTML = "អវិជ្ជមាន"
+            }
+        }
+    </script>
+</body>
+</html>
