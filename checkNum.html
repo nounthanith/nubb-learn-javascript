@@ -9,20 +9,20 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
 </head>
 <body>
-    <div class="flex justify-center item-center mt-20">
-        <div class="grid grid-col-1 gap-1">
-            <input class="input input-border" id="number" type="text" placeholder="Input number"><br>
+    <div class="flex justify-start p-3 gap-2 flex-warp">
+        <button class="btn btn-neutral"><a href="index.html">Home</a></button>
+        <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
+        <button class="btn btn-neutral"><a href="checkNum.html">CheckNumber</a></button>
+        <button class="btn btn-neutral"><a href="ticketAgeCheck.html">Ticket-System</a></button>
+   </div>
+    <div class="flex justify-center items-center h-screen">
+        <div>
+            <input class="input input-border mb-1" id="number" type="text" placeholder="Input number"><br>
             <button class="btn btn-error" onclick="checkNumber()">Click me</button><br>
-            <p>Result: <span class="text-green-600" id="result"> </span></p>
+            <p>Result: <span class="text-green-600 font-bold" id="result"> </span></p>
         </div>
     </div>
-    <div class="flex justify-center mt-5 gap-2">
-        <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
-        <button class="btn btn-neutral"><a href="index.html">Home</a></button>
-        <button class="btn btn-neutral"><a href="checkNum.html">CheckNumber</a></button>
-   </div>
-
-
+   
     <script>
         function checkNumber(){
             let number = document.getElementById("number")

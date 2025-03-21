@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+</head>
+<body>
+    <div class="flex justify-start p-3 gap-2 flex-warp">
+        <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
+        <button class="btn btn-neutral"><a href="index.html">Home</a></button>
+        <button class="btn btn-neutral"><a href="checkNum.html">CheckNumber</a></button>
+        <button class="btn btn-neutral"><a href="ticketAgeCheck.html">Ticket-System</a></button>
+   </div>
+    <div class="flex justify-center items-center h-screen">
+        <div>
+            <input id="age" placeholder="Please input your age" type="text" class="input input-sm input-border mt-1">
+            <button onclick="checkAge()" class="btn btn-success mt-1">Click me</button>
+            <p class="font-bold mt-1">Ticket price: <span class="text-green-600 font-bold" id="result"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function checkAge(){
+
+            let age = document.getElementById("age")
+            let result = document.getElementById("result")
+
+            if(age.value <= 0){
+                result.innerHTML = "Age is undefind"
+            }else if(age.value < 12){
+                result.innerHTML = "5$"
+            }else if(age.value < 18){
+                result.innerHTML = "10$"
+            }else if(age.value < 60){
+                result.innerHTML = "20$"
+            }else if(age.value >= 60){
+                result.innerHTML = "15$"
+            }else{
+                result.innerHTML = alert("Not a number.")
+            }
+        }
+    </script>
+</body>
+</html>

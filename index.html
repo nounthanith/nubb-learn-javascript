@@ -8,20 +8,23 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
 </head>
-<body class="flex justify-center item-center mt-20">
-    <div class="block ">
-        <input class="input input-border" id="num" placeholder="Please input number" type="number">
-
-       <div class="block item-center mt-3 gap-4">
-            <button class="btn" onclick="eventOdd()">Click me</button>
-            <div class="font-semibold">Result is: <span class="text-green-600 underline font-bold mt-2" id="result"></span>
-       </div>
-    </div>
-    <div class="flex justify-center mt-5 gap-2">
-        <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
+<body>
+    <div class="flex justify-start p-3 gap-2 flex-warp">
         <button class="btn btn-neutral"><a href="index.html">Home</a></button>
+        <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
         <button class="btn btn-neutral"><a href="checkNum.html">CheckNumber</a></button>
+        <button class="btn btn-neutral"><a href="ticketAgeCheck.html">Ticket-System</a></button>
    </div>
+    <div class="flex justify-center items-center h-screen">
+        <div>
+            <input class="input input-border" id="num" placeholder="Please input number" type="number">
+    
+           <div class="block item-center mt-3 gap-4">
+                <button class="btn" onclick="eventOdd()">Click me</button>
+                <div class="font-semibold mt-2">Result is: <span class="text-green-600 underline font-bold mt-2" id="result"></span>
+           </div>
+        </div>
+    </div>
 
     <script>
         function eventOdd(){
