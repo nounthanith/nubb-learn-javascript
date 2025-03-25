@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Calendar</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+
+    <style>
+        .selected { background-color: #3b82f6; color: white; }
+        .today { background-color: #facc15; }
+    </style>
+</head>
+<body>
+    <div class="flex flex-wrap justify-start item-center p-6 gap-2">
+        <button class="btn btn-neutral"><a href="index.html">Home</a></button>
+        <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
+        <button class="btn btn-neutral"><a href="checkNum.html">CheckNumber</a></button>
+        <button class="btn btn-neutral"><a href="ticketAgeCheck.html">Ticket-System</a></button>
+        <button class="btn btn-neutral"><a href="calender.html">Calendar</a></button>
+   </div>
+    <div class="flex justify-center item-center h-40">
+        <div>
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                <div class="flex justify-between items-center mb-4">
+                    <button id="prevMonth" class="px-3 py-1 bg-gray-300 rounded">&lt;</button>
+                    <h2 id="monthYear" class="text-lg font-semibold"></h2>
+                    <button id="nextMonth" class="px-3 py-1 bg-gray-300 rounded">&gt;</button>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center">
+                    <div class="font-bold">Sun</div><div class="font-bold">Mon</div>
+                    <div class="font-bold">Tue</div><div class="font-bold">Wed</div>
+                    <div class="font-bold">Thu</div><div class="font-bold">Fri</div>
+                    <div class="font-bold">Sat</div>
+                </div>
+                <div id="calendar" class="grid grid-cols-7 gap-1 text-center mt-2"></div>
+            </div>
+            <div class="bg-white p-4 mt-4 rounded-lg shadow-lg w-96">
+                <h3 class="text-lg font-semibold">Add Event</h3>
+                <input type="text" id="eventInput" placeholder="Event description" class="border p-2 w-full rounded mt-2">
+                <button id="addEvent" class="mt-2 bg-green-500 text-white px-4 py-2 rounded w-1/2">Add Event</button>
+                <div id="eventList" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script>
+        const monthYear = document.getElementById("monthYear");
+        const calendar = document.getElementById("calendar");
+        const prevMonthBtn = document.getElementById("prevMonth");
+        const nextMonthBtn = document.getElementById("nextMonth");
+        const eventInput = document.getElementById("eventInput");
+        const addEventBtn = document.getElementById("addEvent");
+        const eventList = document.getElementById("eventList");
+        
+        let selectedDate = null;
+        let events = {};
+
+        let date = new Date();
+        function renderCalendar() {
+            calendar.innerHTML = "";
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            let today = new Date();
+            monthYear.innerText = date.toLocaleString("default", { month: "long", year: "numeric" });
+            
+            let firstDay = new Date(year, month, 1).getDay();
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+            
+            for (let i = 0; i < firstDay; i++) {
+                calendar.innerHTML += "<div></div>";
+            }
+            
+            for (let day = 1; day <= daysInMonth; day++) {
+                let dayElem = document.createElement("div");
+                dayElem.innerText = day;
+                dayElem.className = "cursor-pointer p-2 hover:bg-gray-200 rounded";
+                
+                let dateKey = `${year}-${month + 1}-${day}`;
+                if (events[dateKey]) {
+                    dayElem.classList.add("bg-green-300");
+                }
+                
+                if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
+                    dayElem.classList.add("today");
+                }
+                
+                dayElem.onclick = function() {
+                    if (selectedDate) selectedDate.classList.remove("selected");
+                    selectedDate = dayElem;
+                    dayElem.classList.add("selected");
+                    showEvents(dateKey);
+                };
+                calendar.appendChild(dayElem);
+            }
+        }
+        
+        function showEvents(dateKey) {
+            eventList.innerHTML = "<h3 class='text-lg font-semibold'>Events</h3>";
+            if (events[dateKey]) {
+                events[dateKey].forEach(event => {
+                    let eventElem = document.createElement("div");
+                    eventElem.innerText = event;
+                    eventElem.className = "bg-gray-200 p-2 rounded mt-2";
+                    eventList.appendChild(eventElem);
+                });
+            } else {
+                eventList.innerHTML += "<p class='text-gray-500'>No events</p>";
+            }
+        }
+        
+        addEventBtn.onclick = function() {
+            if (!selectedDate) {
+                alert("Please select a date first.");
+                return;
+            }
+            let eventText = eventInput.value.trim();
+            if (eventText === "") return;
+            
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            let day = selectedDate.innerText;
+            let dateKey = `${year}-${month + 1}-${day}`;
+            
+            if (!events[dateKey]) {
+                events[dateKey] = [];
+            }
+            events[dateKey].push(eventText);
+            eventInput.value = "";
+            showEvents(dateKey);
+            renderCalendar();
+        };
+        
+        prevMonthBtn.onclick = () => { date.setMonth(date.getMonth() - 1); renderCalendar(); };
+        nextMonthBtn.onclick = () => { date.setMonth(date.getMonth() + 1); renderCalendar(); };
+        
+        renderCalendar();
+    </script>
+</body>
+</html>
