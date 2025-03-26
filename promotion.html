@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotion</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+</head>
+<body>
+    <input id="Price" class="input input-sm input-border" placeholder="Price" type="text">
+    <button onclick="promotion()" class="btn btn-error">Click me</button>
+    <span>
+        <p>Result: <span id="Result"></span></p>
+    </span>
+
+    <script>
+        function promotion(){
+            let Price = document.getElementById("Price")
+            let Result = document.getElementById('Result')
+
+            if(Price.value >= 100){
+                Result.innerHTML = Price.value - 20
+            }else{
+                Result.innerHTML = Price.value
+            }
+        }
+    </script>
+</body>
+</html>

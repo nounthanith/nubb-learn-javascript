@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>  -->
+</head>
+
+<body>
+  <h3>Learning Course</h3>
+  <ul id="list"></ul>
+  <script>
+
+    let courseUrls = [
+      "https://www.coursera.org/learn/python", // Introduction to Programming
+      "https://www.coursera.org/specializations/web-design", // Web Development Basics
+      "https://www.udemy.com/course/javascript-basics-for-beginners/", // JavaScript Fundamentals
+      "https://www.udemy.com/course/html-and-css-for-beginners-crash-course-learn-fast-easy/", // HTML & CSS Design
+      "https://www.freecodecamp.org/learn/responsive-web-design/", // Responsive Web Design
+      "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011", // Frontend Development
+      "https://www.coursera.org/learn/server-side-nodejs", // Backend Development
+      "https://www.coursera.org/learn/database-management", // Database Management
+      "https://www.udemy.com/course/the-complete-nodejs-developer-course-2/", // Node.js Essentials
+      "https://www.coursera.org/learn/react-basics", // React Basics
+      "https://www.udemy.com/course/advanced-javascript-concepts/", // Advanced JavaScript
+      "https://www.coursera.org/learn/api-design-apigee-gcp", // APIs and RESTful Services
+      "https://www.coursera.org/learn/version-control-with-git", // Version Control with Git
+      "https://www.coursera.org/learn/uiux-design-principles", // UI/UX Design Principles
+      "https://www.coursera.org/specializations/full-stack-react", // Full Stack Development
+      "https://www.udemy.com/course/php-for-complete-beginners-includes-msql-object-oriented/", // PHP and MySQL
+      "https://www.udemy.com/course/laravel-8/", // Laravel Framework
+      "https://www.udemy.com/course/android-app-development-for-beginners/", // Mobile App Development
+      "https://www.coursera.org/learn/cloud-computing-basics", // Cloud Computing Basics
+      "https://www.coursera.org/learn/software-development-capstone", // Capstone Project
+    ];
+
+    let courses = [
+      "Introduction to Programming",
+      "Web Development Basics",
+      "JavaScript Fundamentals",
+      "HTML & CSS Design",
+      "Responsive Web Design",
+      "Frontend Development",
+      "Backend Development",
+      "Database Management",
+      "Node.js Essentials",
+      "React Basics",
+      "Advanced JavaScript",
+      "APIs and RESTful Services",
+      "Version Control with Git",
+      "UI/UX Design Principles",
+      "Full Stack Development",
+      "PHP and MySQL",
+      "Laravel Framework",
+      "Mobile App Development",
+      "Cloud Computing Basics",
+      "Capstone Project",
+    ];
+
+    for (let i = 0; i < courses.length; i++) {
+      const list = document.getElementById("list");
+      list.innerHTML += `<li style="${i % 2 == 0 ? "color:pink" : "color:black"
+        }"><a style="text-decoration:none; color:black;" href="${courseUrls[i]}" target="_blank">${courses[i]}</a></li>`;
+    }
+
+  </script>
+</body>
+
+</html>
