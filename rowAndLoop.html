@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="rounded-lg p-6 w-full">
+        <h2 class="text-xl font-bold text-center mb-4">Workout & Screen Time Tracker</h2>
+
+        <!-- Table -->
+        <table class="w-full border border-gray-300">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="p-2">Month</th>
+                    <!-- Days of the month -->
+                    <script>
+                        document.write([...Array(31).keys()].map(i => `<th class="p-2">${i + 1}</th>`).join(""));
+                    </script>
+                </tr>
+            </thead>
+            <tbody id="trackerTable">
+                <!-- Rows will be inserted dynamically -->
+            </tbody>
+        </table>
+
+        <!-- Legend -->
+        <div class="mt-4">
+            <p class="text-sm font-semibold">Legend:</p>
+            <div class="flex gap-4 mt-2">
+                <div class="flex items-center">
+                    <span class="w-4 h-4 bg-red-400 inline-block"></span>
+                    <span class="ml-2">Run</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="w-4 h-4 bg-pink-400 inline-block"></span>
+                    <span class="ml-2">Stretch</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="w-4 h-4 bg-yellow-400 inline-block"></span>
+                    <span class="ml-2">Yoga</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="w-4 h-4 bg-blue-400 inline-block"></span>
+                    <span class="ml-2">Screen Time</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const trackerTable = document.getElementById("trackerTable");
+
+        months.forEach(month => {
+            let row = `<tr class="border border-gray-300"><td class="p-2 font-semibold">${month}</td>`;
+            for (let i = 1; i <= 31; i++) {
+                row += `<td class="p-2 border border-gray-300 text-center cursor-pointer hover:bg-gray-200" onclick="markCell(this)"></td>`;
+            }
+            row += `</tr>`;
+            trackerTable.innerHTML += row;
+        });
+
+        function markCell(cell) {
+            const colors = ["bg-red-400", "bg-pink-400", "bg-yellow-400", "bg-blue-400"];
+            let currentColorIndex = colors.findIndex(color => cell.classList.contains(color));
+            cell.classList.remove(...colors);
+            if (currentColorIndex < colors.length - 1) {
+                cell.classList.add(colors[currentColorIndex + 1] || colors[0]);
+            }
+        }
+    </script>
+</body>
+</html>
