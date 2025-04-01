@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="flex flex-wrap justify-start item-center p-6 gap-2">
+      <button class="btn btn-neutral"><a href="index.html">Home</a></button>
+      <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
+      <button class="btn btn-neutral">
+        <a href="checkNum.html">CheckNumber</a>
+      </button>
+      <button class="btn btn-neutral">
+        <a href="ticketAgeCheck.html">Ticket-System</a>
+      </button>
+      <button class="btn btn-neutral">
+        <a href="calender.html">Calendar</a>
+      </button>
+      <button class="btn btn-neutral">
+        <a href="courseName.html">Courses Name</a>
+      </button>
+      <button class="btn btn-neutral">
+        <a href="japaneseName.html">Convert Name to Japenese</a>
+      </button>
+    </div>
+    <div class="flex justify-center items-center h-40">
+      <div>
+        <h3 class="text-2xl font-bold underline mb-4">Convert Japanese Name</h3>
+        <input
+          class="input input-border input-md mb-3"
+          placeholder="Please input your name here."
+          id="Name"
+          type="text"
+        />
+        <button class="btn btn-success" onclick="ConvertName()">
+          Click me
+        </button>
+        <div class="font-bold block" >
+            <p>You japanese Name is :</p>
+            <span class="text-red-700 underline" id="res"></span>
+        </div>
+      </div>
+    </div>
+    <script>
+      function ConvertName() {
+        let name = document.getElementById("Name");
+        let result = document.getElementById("res");
+
+        // Convert input to lowercase and split into characters
+        name.value = name.value.toLowerCase();
+        let N = name.value.split(""); // Split into an array of characters
+
+        let convertedResult = ""; // This will store the final converted string
+
+        // Loop through each character in the array
+        for (let i = 0; i < N.length; i++) {
+          let char = N[i];
+
+          // Map characters to corresponding strings
+          if (char == "a") {
+            convertedResult += "Ka";
+          } else if (char == "b") {
+            convertedResult += "Tu";
+          } else if (char == "c") {
+            convertedResult += "Mi";
+          } else if (char == "d") {
+            convertedResult += "Te";
+          } else if (char == "e") {
+            convertedResult += "Ku";
+          } else if (char == "f") {
+            convertedResult += "Lu";
+          } else if (char == "g") {
+            convertedResult += "Ji";
+          } else if (char == "h") {
+            convertedResult += "Ri";
+          } else if (char == "i") {
+            convertedResult += "Ki";
+          } else if (char == "j") {
+            convertedResult += "Zu";
+          } else if (char == "k") {
+            convertedResult += "Me";
+          } else if (char == "l") {
+            convertedResult += "Ta";
+          } else if (char == "m") {
+            convertedResult += "Rin";
+          } else if (char == "n") {
+            convertedResult += "To";
+          } else if (char == "o") {
+            convertedResult += "Mo";
+          } else if (char == "p") {
+            convertedResult += "No";
+          } else if (char == "q") {
+            convertedResult += "Ke";
+          } else if (char == "r") {
+            convertedResult += "Shi";
+          } else if (char == "s") {
+            convertedResult += "Ari";
+          } else if (char == "t") {
+            convertedResult += "Chi";
+          } else if (char == "u") {
+            convertedResult += "Do";
+          } else if (char == "v") {
+            convertedResult += "Ru";
+          } else if (char == "w") {
+            convertedResult += "Mei";
+          } else if (char == "x") {
+            convertedResult += "Na";
+          } else if (char == "y") {
+            convertedResult += "Fu";
+          } else if (char == "z") {
+            convertedResult += "Zi";
+          }
+        }
+
+        // Display the final result after the loop
+        result.innerHTML =  convertedResult;
+      }
+    </script>
+  </body>
+</html>
