@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+</head>
+<body>
+    <div class="flex flex-wrap justify-start item-center p-3 gap-2">
+            <button class="btn btn-neutral"><a href="index.html">Home</a></button>
+            <button class="btn btn-neutral"><a href="countNum.html">Count</a></button>
+            <button class="btn btn-neutral"><a href="checkNum.html">CheckNumber</a></button>
+            <button class="btn btn-neutral"><a href="ticketAgeCheck.html">Ticket-System</a></button>
+            <button class="btn btn-neutral"><a href="calender.html">Calendar</a></button>
+            <button class="btn btn-neutral"><a href="courseName.html">Courses Name</a></button>
+            <button class="btn btn-neutral"><a href="japaneseName.html">Convert Name to Japenese</a></button>
+            <button class="btn btn-neutral"><a href="diceGame.html">Game</a></button>
+   </div>
+    <div class="flex justify-center mt-2">
+        <div>
+            <h1 class="underline font-bold text-center mb-10 text-2xl">Welcome to Dice Game</h1>
+            <h1 class="font-bold mb-3 text-center text-blue-700">Please input number down</h1>
+            <input id="num" class="input input-sm mb-3" placeholder="Please input number here" type="text">
+            <button onclick="DiceGame()" class="btn">Click me</button>
+            <div><span class="font-bold">Your input: </span><span id="res"></span></div>
+            <p class="font-bold">Dice is: <span id="resDice"></span></p>
+            <p class="font-bold">Result is: <span id="Result"></span></p>
+        </div>
+    </div>
+    
+    
+    
+    <Script>
+        function DiceGame(){
+
+            let num = document.getElementById("num")
+            num = parseInt(num.value) //Change String to integer
+
+            let returnNum = document.getElementById("res")
+            //Check number not more than 7
+
+            if(num == 1){
+                returnNum.innerHTML = `<span class=" text-green-600 underline">1 ក្តាម</span>`
+            }else if(num == 2){
+                returnNum.innerHTML = `<span class=" text-green-600 underline">2 មាន់</span>`
+            }else if(num == 3){
+                returnNum.innerHTML = `<span class=" text-green-600 underline">3 ខ្លា</span>`
+            }else if(num == 4){
+                returnNum.innerHTML = `<span class=" text-green-600 underline">4 ឃ្លោក</span>`
+            }else if(num == 5){
+                returnNum.innerHTML = `<span class=" text-green-600 underline">5 ត្រី</span>`
+            }else if(num == 6){
+                returnNum.innerHTML = `<span class=" text-green-600 underline">6 បង្កង</span>`
+            }else{
+                returnNum.innerHTML = `<span class=" text-red-600 underline">None</span>`
+            }
+
+            //Dice
+
+            let returnDice = document.getElementById("resDice")
+            
+            for(let i = 0; i<3; i++){
+                let dice = Math.random(1,7) * 6 + 1
+                dice = parseInt(dice)
+
+                if(dice == 1){
+                returnDice.innerHTML += `<span class=" text-green-600 ">1 ក្តាម </span>`
+                }else if(dice == 2){
+                    returnDice.innerHTML += `<span class=" text-green-600 ">2 មាន់ </span>`
+                }else if(dice == 3){
+                    returnDice.innerHTML += `<span class=" text-green-600 ">3 ខ្លា </span>`
+                }else if(dice == 4){
+                    returnDice.innerHTML += `<span class=" text-green-600 ">4 ឃ្លោក </span>`
+                }else if(dice == 5){
+                    returnDice.innerHTML += `<span class=" text-green-600 ">5 ត្រី </span>`
+                }else if(dice == 6){
+                    returnDice.innerHTML += `<span class=" text-green-600 ">6 បង្កង </span>`
+                }else{
+                    returnDice.innerHTML += `<span class=" text-red-600 ">None </span>`
+                }
+
+                let result = document.getElementById('Result')
+
+                if (dice == num){
+                    result.innerHTML = `<span class="font-bold text-blue-500">You win 💥🥰</span>`
+                }else 
+                result.innerHTML = `<span class="font-bold text-blue-500">You lose 😓</span>`
+            }          
+
+            
+        }
+    </Script>
+</body>
+</html>
