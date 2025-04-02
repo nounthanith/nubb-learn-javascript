@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body>
+    <div class="flex justify-center item-center mt-40">
+      <div class="border-1 p-5 rounded-lg shadow-2xl">
+        <h1 class="text-center mb-2 underling">LOGIN</h1>
+        <input
+          class="input input-lg mb-3"
+          id="users"
+          placeholder="input name"
+          type="text"
+        /><br />
+        <input
+          class="input input-lg mb-3"
+          id="password"
+          placeholder="password"
+          type="text"
+        /><br />
+        <button class="btn btn-success btn-sm mb-3" onclick="login()">
+          Click me
+        </button>
+        <p class="ml-2">Result: <span id="res" class="text-red-500"></span></p>
+      </div>
+    </div>
+
+    <script>
+      function login() {
+        let userNames = [
+          "alex01",
+          "bella02",
+          "charlie03",
+          "diana04",
+          "edward05",
+          "fiona06",
+          "george07",
+          "hannah08",
+          "ian09",
+          "julia10",
+          "kevin11",
+          "lisa12",
+          "mike13",
+          "nina14",
+          "oliver15",
+          "paula16",
+          "quincy17",
+          "rachel18",
+          "steve19",
+          "tina20",
+          "ursula21",
+          "victor22",
+          "wanda23",
+          "xavier24",
+          "yara25",
+          "zane26",
+          "andy27",
+          "brenda28",
+          "carlos29",
+          "daisy30",
+        ];
+
+        let passwords = [
+          "Pa$$w0rd1!",
+          "Tiger#42",
+          "Monkey!88",
+          "Sunshine99@",
+          "Dragon*21",
+          "BlueSky#7",
+          "Rocket123!",
+          "C0ffeeL0ver",
+          "Purple$Rain",
+          "Ocean!Wave3",
+          "BookWorm@2",
+          "Choco$late5",
+          "Gamer#Life1",
+          "StarDust*88",
+          "RainBow!6",
+          "PizzaLover7$",
+          "Unicorn99!",
+          "JavaScript@3",
+          "CloudNine#9",
+          "H@ppyDay22",
+          "NightOwl#1",
+          "Cookie$Jar2",
+          "D@rkKnight5",
+          "MagicLand7!",
+          "SunShine_24",
+          "P@ssMePlz!",
+          "SkyHigh_88",
+          "CodeMaster3$",
+          "M0untainTop!",
+          "Winter#Cool1",
+        ];
+
+        let users = document.getElementById("users");
+        let password = document.getElementById("password");
+        let process = document.getElementById("res");
+        let t = false;
+
+        for (let i = 0; i < userNames.length && passwords.length; i++) {
+          if (userNames[i] === users.value && passwords[i] === password.value)
+            t = true;
+          break;
+        }
+
+        if (t) process.innerHTML = "Login success";
+        else process.innerHTML = "Login failed";
+      }
+    </script>
+  </body>
+</html>
